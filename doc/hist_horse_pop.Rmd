@@ -1,8 +1,12 @@
 ---
 title: "Historical horse population in Canada"
+bibliography: horse_refs.bib
 params:
   province: "Alberta"
-output: github_document
+output: 
+  github_document:
+    toc: True
+
 ---
 
 ```{r setup, include=FALSE}
@@ -33,7 +37,7 @@ Horse population data were sourced from the [Government of Canada's Open Data we
 
 ## Methods
 
-The R programming language and the following R packages were used to perform the analysis: knitr and tidyverse. The code used to perform the analysis and create this report can be found here: https://github.com/ttimbers/equine_numbers_value_canada_rmd.
+The R programming language [@R] and the following R packages were used to perform the analysis: knitr [@knitr] and tidyverse [@tidyverse]. The code used to perform the analysis and create this report can be found here: https://github.com/ttimbers/equine_numbers_value_canada_rmd.
 
 
 ## Results
@@ -57,7 +61,7 @@ industry after the Great Depression and the Second World War. An interesting fol
 
 Next we look at the range of the number horses for each provinces at any time point between 1940 - 1972:
 
-```{r max horse table, message = False, warning = False}
+```{r max horse table}
 max_horses <- horse_pop %>% 
   select(GEO, Value) %>% 
   rename(Province = GEO) %>% 
