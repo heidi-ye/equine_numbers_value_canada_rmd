@@ -1,5 +1,7 @@
 ---
 title: "Historical horse population in Canada"
+params:
+  province: "Alberta"
 output: github_document
 ---
 
@@ -36,7 +38,7 @@ The R programming language and the following R packages were used to perform the
 
 ## Results
 
-```{r plot horses, fig.width=10, fig.height=3, fig.cap = "Plot 1. Horse Population by Province"}
+```{r plot horses, fig.width=10, fig.height=3, fig.cap = "Figure 1. Horse Population by Province"}
 horse_plot <- ggplot(horse_pop, aes(x = Ref_Date, y = Value)) +
   geom_point() +
   geom_line() +
@@ -70,7 +72,7 @@ kable(max_horses,
 
 Below we zoom in and look at the province of Alberta:
 
-```{r plot province, fig.width=5, fig.height=4, fig.cap = "Plot 2. Horse Population for Province"}
+```{r plot province, fig.width=5, fig.height=4, fig.cap = "Figure 2. Horse populations for `r params$province` between 1940 - 1972."}
 province_plot <- horse_pop %>% 
   filter(GEO == "Alberta") %>% 
   ggplot(aes(x = Ref_Date, y = Value)) +
